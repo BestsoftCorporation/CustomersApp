@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->get('/admin',[AdminController::class,'index']);
+Route::middleware('auth:sanctum')->post('/admin/comment',[AdminController::class,'addComment']);
+
 
 //public routes
 Route::post('/login',[LoginController::class,'login']);
