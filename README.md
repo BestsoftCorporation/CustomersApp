@@ -1,6 +1,9 @@
 ## Customer application
 
 ## Endpoints for API
+
+### Public routes
+
 ``POST /api/customers``
 - Example body:
 ```
@@ -26,4 +29,7 @@ email : software.developer@hotmail.rs
 password :12345
 ```
 
+### Required access_token routes
+
+``GET /api/admin``
 
