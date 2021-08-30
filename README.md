@@ -4,11 +4,12 @@
 
 Rename .env.example file to .env inside project root and fill the database information. 
 Open the console and cd project root directory
+```
 Run composer install or php composer.phar install
 Run php artisan key:generate
 Run php artisan migrate
 Run php artisan serve
-
+```
 ## Create Admin user 
 
 ``php artisan tinker``
