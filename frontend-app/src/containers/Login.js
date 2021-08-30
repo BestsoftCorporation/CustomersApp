@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import axios from "axios";
-import {Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router'
 
 
 export default function Login() {
@@ -30,13 +30,15 @@ export default function Login() {
         .then(function (response) {
           //handle success
           localStorage.setItem('TOKEN', JSON.parse(JSON.stringify(response.data))['access_token']);
-          return  <Redirect  to="/admin" />
+          window.location = "/admin" 
           console.log(response);
         })
         .catch(function (response) {
           //handle error
           console.log(response);
         });
+       
+       
 
     } catch (e) {
       alert(e.message);

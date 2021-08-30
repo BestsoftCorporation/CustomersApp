@@ -3,6 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import axios from "axios";
+import DateTimePicker from 'react-datetime-picker';
+const moment = require('moment');
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -11,6 +13,7 @@ export default function Login() {
     const [company, setCompany] = useState("");
     const [subject, setSubject] = useState("");
     const [problemdescription, setProblemDescription] = useState("");
+    const [value, onChange] = useState(new Date());
 
     function validateForm() {
         return email.length > 0 && name.length > 0 && company.length > 0 && subject.length > 0 && problemdescription.length > 0;
@@ -27,36 +30,18 @@ export default function Login() {
                 Email: email,
                 Subject: subject,
                 ProblemDescription: problemdescription,
-                "CallbackDateTime": "2021-08-26 23:09:21"
+                CallbackDateTime: moment(value).format('YYYY-MM-DD HH:mm:ss')
             })
                 .then(function (response) {
-                    try {
-
-                        axios.post('http://127.0.0.1:8000/api/customers', {
-                            Name: name,
-                            Phone: phone,
-                            Company: company,
-                            Email: email,
-                            Subject: subject,
-                            ProblemDescription: problemdescription,
-                            "CallbackDateTime": "2021-08-26 23:09:21"
-                        })
-                            .then(function (response) {
-                                console.log(response);
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
-                        alert("Successefully send!")
-                    } catch (e) {
-                        alert(e.message);
-                    }
                     console.log(response);
+                    alert("Successefully send!")
                 })
                 .catch(function (error) {
                     console.log(error);
+                    alert( moment(value).format('DD-MM-YYYY HH:mm'));
                 });
-            alert("Successefully send!")
+
+
         } catch (e) {
             alert(e.message);
         }
@@ -120,6 +105,14 @@ export default function Login() {
                         onChange={(e) => setProblemDescription(e.target.value)}
                     />
                 </Form.Group>
+
+                <div>
+                    <DateTimePicker
+                        onChange={onChange}
+                        value={value}
+                        format={"y-MM-dd h:mm:ss a"}
+                    />
+                </div>
 
                 <Button block size="lg" type="submit" disabled={!validateForm()}>
                     Send

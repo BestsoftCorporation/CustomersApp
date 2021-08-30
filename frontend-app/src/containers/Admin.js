@@ -4,47 +4,7 @@ import React, { Component, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const data = [
 
-    {
-        "id": 1,
-        "Name": "Marko Stojkovic",
-        "Phone": "+381606221290",
-        "Company": "SomeCompany",
-        "Email": "gamer98forever@gmail.com",
-        "Subject": "Sub",
-        "ProblemDescription": "Some problem",
-        "CallbackDateTime": "2021-08-26 23:09:21",
-        "created_at": "2021-08-26T23:12:36.000000Z",
-        "updated_at": "2021-08-26T23:12:36.000000Z"
-    },
-    {
-        "id": 2,
-        "Name": "sdfsf",
-        "Phone": "1231231",
-        "Company": "dsfsdf",
-        "Email": "sfsdf@gmail.com",
-        "Subject": "adasd",
-        "ProblemDescription": "sadasd",
-        "CallbackDateTime": "2021-08-26 23:09:21",
-        "created_at": "2021-08-30T21:16:24.000000Z",
-        "updated_at": "2021-08-30T21:16:24.000000Z"
-    },
-    {
-        "id": 3,
-        "Name": "sdfsf",
-        "Phone": "1231231",
-        "Company": "dsfsdf",
-        "Email": "sfsdf@gmail.com",
-        "Subject": "adasd",
-        "ProblemDescription": "sadasd",
-        "CallbackDateTime": "2021-08-26 23:09:21",
-        "created_at": "2021-08-30T21:17:47.000000Z",
-        "updated_at": "2021-08-30T21:17:47.000000Z"
-    }
-
-
-];
 
 const columns = [
     {
