@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return Customer::paginate(15);
+        return Customer::all();
     }
 
     public function addComment(Request $request)

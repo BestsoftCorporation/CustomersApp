@@ -15,7 +15,8 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('tbl_Comment', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('id')->on('tbl_Customers');
+            $table->unsignedBigInteger('id_customer');
+            $table->foreign('id_customer')->references('id')->on('tbl_Customers');
             $table->string('Comment');
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('tbl_Comment');
     }
 }
